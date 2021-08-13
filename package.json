@@ -1,0 +1,12 @@
+{
+  "name": "take-blip-desafio",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/isaac-allef/take-blip-desafio.git",
+  "author": "Isaac Allef <isaac_allef@hotmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1"
+  }
+}
