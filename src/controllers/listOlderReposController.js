@@ -4,14 +4,14 @@ class ListOlderReposController {
     }
 
     async handle(httpRequest) {
-        const { listLength } = httpRequest.query;
+        const { maxLength } = httpRequest.query;
         let { language } = httpRequest.query;
         
         if (language && language.toUpperCase() === 'CSHARP') {
             language = 'C#';
         }
 
-        const listOlderRepos = await this.listOlderReposService.execute(language, listLength);
+        const listOlderRepos = await this.listOlderReposService.execute(language, maxLength);
 
         return {
             statusCode: 200,
