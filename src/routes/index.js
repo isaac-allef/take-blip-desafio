@@ -2,8 +2,8 @@ const { Router } = require('express');
 
 const routes = Router();
 const expressRouter = require('../adapters/expressRouter');
-const makeListOlderReposController = require('../factories/makeListOlderReposController');
+const makeFiveOlderCSharpReposController = require('../factories/makeFiveOlderCSharpReposController');
 
-routes.get('/olderRepos', expressRouter(makeListOlderReposController()));
+routes.get('/fiveOlderCSharpRepos', expressRouter(makeFiveOlderCSharpReposController()));
 
 module.exports = routes;

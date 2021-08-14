@@ -1,32 +1,30 @@
 const axios = require('axios');
 
-class ListOlderReposService {
-    async execute(language='C#', maxLength=5) {
-        const PER_PAGE = 20;
+class ListOlderReposByLangService {
+    async execute({ language='C#', maxLength=5, search_page_size=20 }) {
         let page = 1;
-        let repositoriesFiltered = [];
+        let reposFiltered = [];
 
-        while (repositoriesFiltered.length < maxLength) {
-            const repositories = await this.getListRepositories(page, PER_PAGE);
+        while (reposFiltered.length < maxLength) {
+            const repositories = await this.getListRepositories(page, search_page_size);
 
             if (repositories.length === 0) {
                 break;
             }
     
-            repositoriesFiltered = [...repositoriesFiltered, ...repositories.filter(repo => {
+            reposFiltered = [...reposFiltered, ...repositories.filter(repo => {
                 return repo.language === language;
             })];
 
             page += 1;
         }
         
-        const olderReposFiltered = repositoriesFiltered.slice(0, maxLength);
+        reposFiltered = reposFiltered.slice(0, maxLength);
 
         return {
             language,
             maxLength,
-            orgAvatar: 'https://avatars.githubusercontent.com/u/4369522?v=4',
-            olderReposFiltered,
+            reposFiltered,
         };
     }
 
@@ -42,4 +40,4 @@ class ListOlderReposService {
     }
 }
 
-module.exports = ListOlderReposService;
+module.exports = ListOlderReposByLangService;
