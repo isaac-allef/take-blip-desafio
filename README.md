@@ -2,6 +2,8 @@
 
 > Este é um repositório para resolução de um desafio técnico para a Take Blip. Trata-se do desenvolvimento de um chatbot em sua [plataforma](https://account.blip.ai/login) e o desenvolvimento de uma API para ser consumida pelo chatbot.
 
+> Esta API está publicada na plataforma [Heroku](https://www.heroku.com/) e pode ser encontrada [aqui](https://take-blip-desafio-isaac-allef.herokuapp.com/fiveOlderCSharpRepos)
+
 # :pushpin: Table of Contents
 
 * [Features](#rocket-features)
@@ -60,6 +62,26 @@ O código HTTP de retorno é 200 e o corpo da resposta é:
 }
 ```
 Se os parâmetros da requisição estiverem errados será retornado um erro com status 400 e uma mensagem informando qual o tipo de erro. Caso aja algum erro interno será retornado um erro com status 500.
+
+---
+
+```
+GET /static/cardImages/be.png
+```
+Opções de imagem
+|       Name       |     Extension    |
+|:-----------------|:-----------------|
+| be               | png              |
+| charge           | png              |
+| desafio          | png              |
+| execellence       | png             |
+| higher           | png              |
+| simple           | png              |
+| team             | png              |
+
+O código HTTP de retorno é 200 e o corpo da resposta é a imagem buscada.
+
+Caso a imagem buscada não exista, será retornado um erro com status 404.
 
 # :construction_worker: Installation
 
