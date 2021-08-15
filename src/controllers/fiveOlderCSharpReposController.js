@@ -1,8 +1,8 @@
 const { ok, serverError, badRequest } = require("../helpers/httpHelper");
 
 class FiveOlderCSharpReposController {
-    constructor(olderReposByLanguageService) {
-        this.olderReposByLanguageService = olderReposByLanguageService;
+    constructor(listOlderReposByLangService) {
+        this.listOlderReposByLangService = listOlderReposByLangService;
     }
 
     async handle(httpRequest) {
@@ -22,7 +22,7 @@ class FiveOlderCSharpReposController {
                 }
             }
     
-            const { reposFiltered } = await this.olderReposByLanguageService.execute({ 
+            const { reposFiltered } = await this.listOlderReposByLangService.execute({ 
                 language: LANGUAGE,
                 maxLength: MAX_LENGTH,
                 search_page_size,
